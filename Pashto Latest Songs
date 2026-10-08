@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Pashto Songs By Pishin Wala</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    color:white;
+    background:
+    radial-gradient(circle at 20% 10%, #174734 0%, transparent 30%),
+    radial-gradient(circle at 80% 30%, #0c6b4a 0%, transparent 30%),
+    #050b09;
+    overflow-x:hidden;
+}
+
+/* MUSIC SYMBOLS IN BACKGROUND */
+
+body::before{
+    content:"♫   ♪   ♬   𝄞   ♩   ♪   ♫";
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:-1;
+    font-family:Georgia,serif;
+    font-size:90px;
+    line-height:2.2;
+    letter-spacing:45px;
+    color:rgba(255,255,255,0.035);
+    transform:rotate(-12deg);
+    pointer-events:none;
+}
+
+/* HEADER */
+
+header{
+    padding:20px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid #244d3d;
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(5,11,9,0.92);
+    backdrop-filter:blur(14px);
+}
+
+.logo{
+    font-size:23px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#20d58a;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:22px;
+    font-weight:bold;
+}
+
+nav a:hover{
+    color:#20d58a;
+}
+
+/* HERO */
+
+.hero{
+    padding:80px 7% 60px;
+    text-align:center;
+}
+
+.badge{
+    display:inline-block;
+    padding:9px 16px;
+    border:1px solid #2b7356;
+    border-radius:30px;
+    color:#f5c75a;
+    background:#0d241d;
+    font-weight:bold;
+}
+
+h1{
+    font-size:clamp(40px,7vw,78px);
+    line-height:1;
+    margin:20px 0;
+}
+
+.green{
+    color:#20d58a;
+}
+
+.hero p{
+    max-width:780px;
+    margin:auto;
+    color:#a9c4b8;
+    font-size:18px;
+    line-height:1.7;
+}
+
+.detail{
+    max-width:850px;
+    margin:25px auto;
+    padding:18px 22px;
+    border:1px solid #315d4b;
+    background:#0b2118;
+    border-radius:18px;
+    font-size:17px;
+    font-weight:bold;
+}
+
+/* MAIN */
+
+.container{
+    width:86%;
+    max-width:1200px;
+    margin:auto;
+}
+
+.section{
+    padding:30px 0 70px;
+}
+
+h2{
+    font-size:30px;
+    margin-bottom:22px;
+}
+
+/* GRID */
+
+.grid{
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
+    gap:18px;
+}
+
+/* CARDS */
+
+.card{
+    background:
+    linear-gradient(145deg,#10271f,#08130f);
+    border:1px solid #244d3d;
+    border-radius:22px;
+    padding:20px;
+    box-shadow:0 14px 45px rgba(0,0,0,0.5);
+}
+
+/* SONG */
+
+.song{
+    display:flex;
+    gap:15px;
+    align-items:center;
+}
+
+.cover{
+    width:64px;
+    height:64px;
+    flex:0 0 64px;
+    border-radius:16px;
+    background:
+    linear-gradient(135deg,#20d58a,#0a5b40);
+    display:grid;
+    place-items:center;
+    font-size:30px;
+}
+
+.song h3{
+    margin-bottom:6px;
+}
+
+.muted{
+    color:#a9c4b8;
+    font-size:14px;
+}
+
+/* AUDIO */
+
+audio{
+    width:100%;
+    margin:16px 0 10px;
+}
+
+/* BUTTONS */
+
+button,
+.download{
+    border:none;
+    border-radius:11px;
+    padding:11px 15px;
+    background:#20d58a;
+    color:#04120c;
+    font-weight:bold;
+    cursor:pointer;
+    text-decoration:none;
+    display:inline-block;
+}
+
+button:hover,
+.download:hover{
+    opacity:0.85;
+}
+
+.secondary{
+    background:#19372b;
+    color:white;
+    border:1px solid #315d4c;
+}
+
+.actions{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+/* SINGER */
+
+.singer{
+    overflow:hidden;
+    text-align:center;
+    padding:14px;
+}
+
+.singer img{
+    width:100%;
+    aspect-ratio:1/1;
+    object-fit:cover;
+    border-radius:17px;
+    display:block;
+}
+
+.singer h3{
+    margin:13px 0 5px;
+}
+
+/* ADMIN */
+
+.admin{
+    display:none;
+}
+
+.admin.show{
+    display:block;
+}
+
+.form{
+    display:grid;
+    gap:12px;
+}
+
+.form input{
+    padding:13px;
+    border-radius:10px;
+    border:1px solid #315747;
+    background:#081710;
+    color:white;
+    width:100%;
+}
+
+.form input::placeholder{
+    color:#8ca99d;
+}
+
+.notice{
+    padding:15px 17px;
+    background:#10291f;
+    border-left:4px solid #f5c75a;
+    border-radius:10px;
+    color:#d7e9e0;
+    line-height:1.6;
+}
+
+.empty{
+    color:#a9c4b8;
+    padding:20px 0;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:35px;
+    color:#87a99b;
+    border-top:1px solid #244d3d;
+}
+
+/* MOBILE */
+
+@media(max-width:650px){
+
+    header{
+        padding:18px 5%;
+    }
+
+    .logo{
+        font-size:18px;
+    }
+
+    nav{
+        display:none;
+    }
+
+    .container{
+        width:90%;
+    }
+
+    .hero{
+        padding-top:55px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- HEADER -->
+
+<header>
+
+    <div class="logo">
+        Pashto Songs
+        <span>By Pishin Wala</span>
+    </div>
+
+    <nav>
+        <a href="#songs">Songs</a>
+        <a href="#singers">Singers</a>
+        <a href="#admin">Admin</a>
+    </nav>
+
+</header>
+
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="badge">
+        🎵 د پښتو سندرو کور
+    </div>
+
+    <h1>
+        Pashto Songs
+        <br>
+
+        <span class="green">
+            By Pishin Wala
+        </span>
+    </h1>
+
+    <p>
+        Listen to Pashto music, discover Pashto singers,
+        and download your favorite songs in one beautiful place.
+    </p>
+
+    <div class="detail">
+        🎧 In this website you can download any type of pashto song.
+    </div>
+
+</section>
+
+
+
+<main class="container">
+
+
+<!-- SONG SECTION -->
+
+<section id="songs" class="section">
+
+    <h2>
+        🎧 Latest Pashto Songs
+    </h2>
+
+    <div id="songList" class="grid"></div>
+
+    <div id="emptySongs" class="empty">
+        No songs uploaded yet.
+        The owner can add songs from the Admin section.
+    </div>
+
+</section>
+
+
+
+<!-- SINGERS -->
+
+<section id="singers" class="section">
+
+    <h2>
+        🎤 Pashto Singers
+    </h2>
+
+    <div class="grid">
+
+
+        <!-- SINGER 1 -->
+
+        <div class="card singer">
+
+            <img
+                src="singer1.jpg"
+                alt="Pashto Singer"
+            >
+
+            <h3>
+                Pashto Singer
+            </h3>
+
+            <div class="muted">
+                Pashto Singer
+            </div>
+
+        </div>
+
+
+
+        <!-- SINGER 2 -->
+
+        <div class="card singer">
+
+            <img
+                src="singer2.jpg"
+                alt="Pashto Singer"
+            >
+
+            <h3>
+                Pashto Singer
+            </h3>
+
+            <div class="muted">
+                Pashto Singer
+            </div>
+
+        </div>
+
+
+
+        <!-- SINGER 3 -->
+
+        <div class="card singer">
+
+            <img
+                src="singer3.jpg"
+                alt="Pashto Singer"
+            >
+
+            <h3>
+                Pashto Singer
+            </h3>
+
+            <div class="muted">
+                Pashto Singer
+            </div>
+
+        </div>
+
+
+
+        <!-- SINGER 4 -->
+
+        <div class="card singer">
+
+            <img
+                src="singer4.jpg"
+                alt="Pashto Singer"
+            >
+
+            <h3>
+                Pashto Singer
+            </h3>
+
+            <div class="muted">
+                Pashto Singer
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ADMIN -->
+
+<section id="admin" class="section">
+
+    <h2>
+        🔐 Owner Upload Panel
+    </h2>
+
+
+    <!-- LOGIN -->
+
+    <div id="loginBox" class="card">
+
+        <p class="muted">
+            Only the website owner should use this section.
+        </p>
+
+        <br>
+
+        <div class="form">
+
+            <input
+                id="password"
+                type="password"
+                placeholder="Admin password"
+            >
+
+            <button onclick="login()">
+                Open Admin Panel
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ADMIN PANEL -->
+
+    <div id="adminPanel" class="admin">
+
+        <div class="grid">
+
+
+            <!-- SONG UPLOAD -->
+
+            <div class="card">
+
+                <h3>
+                    Upload Song
+                </h3>
+
+                <br>
+
+                <div class="form">
+
+                    <input
+                        id="songTitle"
+                        placeholder="Song title"
+                    >
+
+                    <input
+                        id="artist"
+                        placeholder="Singer / artist"
+                    >
+
+                    <input
+                        id="songFile"
+                        type="file"
+                        accept="audio/*"
+                    >
+
+                    <button onclick="addSong()">
+                        Add Song
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- SINGER UPLOAD -->
+
+            <div class="card">
+
+                <h3>
+                    Add Singer Photo
+                </h3>
+
+                <br>
+
+                <div class="form">
+
+                    <input
+                        id="singerName"
+                        placeholder="Singer name"
+                    >
+
+                    <input
+                        id="singerPhoto"
+                        type="file"
+                        accept="image/*"
+                    >
+
+                    <button onclick="addSinger()">
+                        Add Singer Photo
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <br>
+
+
+        <div class="notice">
+
+            This demo stores uploads in this browser.
+
+            For a real public website, connect the upload panel
+            to cloud storage/database so your uploaded songs
+            appear for every visitor.
+
+        </div>
+
+
+        <br>
+
+
+        <button
+            class="secondary"
+            onclick="logout()"
+        >
+            Close Admin
+        </button>
+
+    </div>
+
+</section>
+
+</main>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    © 2026 Pashto Songs By Pishin Wala
+    • 🎶 Pashto Music Website
+
+</footer>
+
+
+
+<script>
+
+
+/* CHANGE YOUR ADMIN PASSWORD HERE */
+
+const ADMIN_PASSWORD = "PishinWala123";
+
+
+
+/* GET SAVED SONGS */
+
+let songs =
+JSON.parse(
+    localStorage.getItem("pishinSongs") || "[]"
+);
+
+
+
+/* GET SAVED SINGER PHOTOS */
+
+let customSingers =
+JSON.parse(
+    localStorage.getItem("pishinSingers") || "[]"
+);
+
+
+
+/* SAVE DATA */
+
+function save(){
+
+    localStorage.setItem(
+        "pishinSongs",
+        JSON.stringify(songs)
+    );
+
+    localStorage.setItem(
+        "pishinSingers",
+        JSON.stringify(customSingers)
+    );
+
+}
+
+
+
+/* LOGIN */
+
+function login(){
+
+    const password =
+        document.getElementById("password").value;
+
+
+    if(password === ADMIN_PASSWORD){
+
+        document.getElementById("loginBox")
+            .style.display = "none";
+
+        document.getElementById("adminPanel")
+            .classList.add("show");
+
+    }
+
+    else{
+
+        alert("Wrong admin password.");
+
+    }
+
+}
+
+
+
+/* LOGOUT */
+
+function logout(){
+
+    document.getElementById("adminPanel")
+        .classList.remove("show");
+
+    document.getElementById("loginBox")
+        .style.display = "block";
+
+}
+
+
+
+/* ADD SONG */
+
+function addSong(){
+
+    const title =
+        document.getElementById("songTitle")
+        .value.trim();
+
+
+    const artist =
+        document.getElementById("artist")
+        .value.trim();
+
+
+    const file =
+        document.getElementById("songFile")
+        .files[0];
+
+
+    if(!title || !file){
+
+        alert(
+            "Enter song title and choose an audio file."
+        );
+
+        return;
+
+    }
+
+
+    const reader =
+        new FileReader();
+
+
+    reader.onload = function(){
+
+        songs.unshift({
+
+            id:Date.now(),
+
+            title:title,
+
+            artist:
+                artist || "Pashto Singer",
+
+            src:reader.result,
+
+            name:file.name
+
+        });
+
+
+        save();
+
+        renderSongs();
+
+        alert("Song added successfully.");
+
+    };
+
+
+    reader.readAsDataURL(file);
+
+}
+
+
+
+/* ADD SINGER */
+
+function addSinger(){
+
+    const name =
+        document.getElementById("singerName")
+        .value.trim();
+
+
+    const file =
+        document.getElementById("singerPhoto")
+        .files[0];
+
+
+    if(!file){
+
+        alert(
+            "Choose a singer photo."
+        );
+
+        return;
+
+    }
+
+
+    const reader =
+        new FileReader();
+
+
+    reader.onload = function(){
+
+        customSingers.push({
+
+            name:
+                name || "Pashto Singer",
+
+            src:reader.result
+
+        });
+
+
+        save();
+
+        alert(
+            "Singer photo added successfully."
+        );
+
+    };
+
+
+    reader.readAsDataURL(file);
+
+}
+
+
+
+/* DELETE SONG */
+
+function deleteSong(id){
+
+    if(
+        confirm(
+            "Delete this song?"
+        )
+    ){
+
+        songs =
+            songs.filter(
+                song => song.id !== id
+            );
+
+
+        save();
+
+        renderSongs();
+
+    }
+
+}
+
+
+
+/* DISPLAY SONGS */
+
+function renderSongs(){
+
+    const box =
+        document.getElementById(
+            "songList"
+        );
+
+
+    const empty =
+        document.getElementById(
+            "emptySongs"
+        );
+
+
+    box.innerHTML = "";
+
+
+    empty.style.display =
+        songs.length
+        ? "none"
+        : "block";
+
+
+    songs.forEach(function(song){
+
+        const card =
+            document.createElement("div");
+
+
+        card.className =
+            "card";
+
+
+        card.innerHTML = `
+
+            <div class="song">
+
+                <div class="cover">
+                    ♪
+                </div>
+
+                <div>
+
+                    <h3>
+                        ${escapeHtml(song.title)}
+                    </h3>
+
+                    <div class="muted">
+                        ${escapeHtml(song.artist)}
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <audio
+                controls
+                preload="none"
+                src="${song.src}">
+            </audio>
+
+
+            <div class="actions">
+
+                <a
+                    class="download"
+                    href="${song.src}"
+                    download="${escapeHtml(song.name)}">
+
+                    ⬇ Download
+
+                </a>
+
+
+                <button
+                    class="secondary"
+                    onclick="deleteSong(${song.id})">
+
+                    Delete
+
+                </button>
+
+            </div>
+
+        `;
+
+
+        box.appendChild(card);
+
+    });
+
+}
+
+
+
+/* SECURITY */
+
+function escapeHtml(value){
+
+    return String(value).replace(
+
+        /[&<>"']/g,
+
+        function(character){
+
+            return {
+
+                "&":"&amp;",
+                "<":"&lt;",
+                ">":"&gt;",
+                '"':"&quot;",
+                "'":"&#039;"
+
+            }[character];
+
+        }
+
+    );
+
+}
+
+
+
+/* START WEBSITE */
+
+renderSongs();
+
+</script>
+
+
+</body>
+</html>
